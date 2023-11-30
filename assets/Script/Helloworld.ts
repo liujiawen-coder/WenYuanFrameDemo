@@ -1,3 +1,4 @@
+import EventMgr from "./Core/Event/EventMgr";
 import TimerManager from "./Core/Timer/TimerManager";
 
 const { ccclass, property } = cc._decorator;
@@ -31,6 +32,13 @@ export default class Helloworld extends cc.Component {
         let timerMgr = TimerManager.ins();
         timerMgr.init();
         timerMgr.doTimer(1000, -1, this.timerFun, this);
+
+
+        EventMgr.on("test", this.test, this);
+    }
+
+    test() {
+        console.log("test");
     }
     private timerFun() {
         this.timer++;
