@@ -28,7 +28,7 @@ export default class Helloworld extends cc.Component {
         }, this);
 
 
-        let timerMgr = new TimerManager();
+        let timerMgr = TimerManager.ins();
         timerMgr.init();
         timerMgr.doTimer(1000, -1, this.timerFun, this);
     }

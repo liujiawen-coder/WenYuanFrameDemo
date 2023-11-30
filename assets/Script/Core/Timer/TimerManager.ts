@@ -7,12 +7,14 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class TimerManager {
+export default class TimerManager extends BaseClass {
 
     private _timerList: ITimer[] = [];
     private _currTime: number;
     private _currFrame: any;
-
+    static ins(): TimerManager {
+        return super.ins() as TimerManager;
+    }
     public init() {
         this._timerList = [];
         this._currTime = cc.director.getTotalTime();
